@@ -1,0 +1,15 @@
+from skimage import data
+from skimage.color import convert_colorspace 
+from matplotlib import pyplot as plt
+
+'''create list of required color spaces.'''
+colorSpace = ['HSV', 'XYZ', 'YUV', 'RGB CIE']
+
+camera = data.camera()
+fig, axes = plt.subplots(1, len(colorSpace), figsize= (20,6))
+
+for idx, s in enumerate(colorSpace):
+    monalisaColor = convert_colorspace(camera ,'RGB', s)
+    axes[idx].imshow(cameraColor)
+    axes[idx].set_title(f'colorspace = {s}')
+plt.show()
